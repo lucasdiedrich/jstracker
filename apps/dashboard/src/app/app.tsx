@@ -4,26 +4,28 @@ import { Route, Link } from 'react-router-dom';
 import Login from './login/login';
 import Register from './register/register';
 import Navbar from './navbar/navbar';
+import Map from './map/map';
 
 export function App() {
   return (
     <>
       <Navbar />
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Route
-            path="/"
-            exact
-            render={Login}
-          />
-          <Route
-            path="/register"
-            exact
-            render={Register}
-          />
-          {/* END: routes */}
-        </div>
-      </div>
+      <Route
+        path="/"
+        exact
+        render={Login}
+      />
+      <Route
+        path="/register"
+        exact
+        render={Register}
+      />
+      <Route
+        path="/map"
+        exact
+        render={Map}
+      />
+      {/* END: routes */}
     </>
   );
 }
