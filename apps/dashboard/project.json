@@ -1,53 +1,82 @@
 {
   "root": "apps/dashboard",
-  "sourceRoot": "apps/dashboard",
+  "sourceRoot": "apps/dashboard/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/next:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nrwl/web:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/dashboard",
-        "outputPath": "dist/apps/dashboard"
+        "compiler": "babel",
+        "outputPath": "dist/apps/dashboard",
+        "index": "apps/dashboard/src/index.html",
+        "baseHref": "/",
+        "main": "apps/dashboard/src/main.tsx",
+        "polyfills": "apps/dashboard/src/polyfills.ts",
+        "tsConfig": "apps/dashboard/tsconfig.app.json",
+        "assets": [
+          "apps/dashboard/src/favicon.ico",
+          "apps/dashboard/src/assets"
+        ],
+        "styles": [
+          "apps/dashboard/src/styles.scss"
+        ],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
       },
       "configurations": {
-        "production": {}
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/dashboard/src/environments/environment.ts",
+              "with": "apps/dashboard/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
       }
     },
     "serve": {
-      "executor": "@nrwl/next:server",
+      "executor": "@nrwl/web:dev-server",
       "options": {
         "buildTarget": "dashboard:build",
-        "dev": true,
+        "hmr": true,
         "proxyConfig": "apps/dashboard/proxy.conf.json"
       },
       "configurations": {
         "production": {
           "buildTarget": "dashboard:build:production",
-          "dev": false
+          "hmr": false
         }
-      }
-    },
-    "export": {
-      "executor": "@nrwl/next:export",
-      "options": {
-        "buildTarget": "dashboard:build:production"
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/dashboard"],
-      "options": {
-        "jestConfig": "apps/dashboard/jest.config.js",
-        "passWithNoTests": true
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/dashboard/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/dashboard/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/dashboard"
+      ],
+      "options": {
+        "jestConfig": "apps/dashboard/jest.config.js",
+        "passWithNoTests": true
       }
     }
   },
