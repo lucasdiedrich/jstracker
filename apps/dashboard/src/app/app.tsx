@@ -7,16 +7,6 @@ import Register from './register/register';
 export function App() {
   return (
     <>
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-        </ul>
-      </div>
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
           <Link className="navbar-brand" to={"/"}>JSTracker</Link>
