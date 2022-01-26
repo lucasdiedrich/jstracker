@@ -3,25 +3,12 @@ import styles from './app.module.scss';
 import { Route, Link } from 'react-router-dom';
 import Login from './login/login';
 import Register from './register/register';
+import Navbar from './navbar/navbar';
 
 export function App() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          <Link className="navbar-brand" to={"/"}>JSTracker</Link>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/register"}>Sign up</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>      
+      <Navbar />
       <div className="auth-wrapper">
         <div className="auth-inner">
           <Route
