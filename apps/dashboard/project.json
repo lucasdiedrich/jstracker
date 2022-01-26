@@ -18,7 +18,7 @@
         "polyfills": "apps/dashboard/src/polyfills.ts",
         "tsConfig": "apps/dashboard/tsconfig.app.json",
         "assets": [
-          "apps/dashboard/src/favicon.ico",
+          "apps/dashboard/src/favicon.png",
           "apps/dashboard/src/assets"
         ],
         "styles": [
