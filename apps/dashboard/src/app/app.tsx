@@ -1,51 +1,52 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
-
 import { Route, Link } from 'react-router-dom';
+import Login from './login/login';
+import Register from './register/register';
 
 export function App() {
   return (
     <>
-      <NxWelcome title="dashboard" />
-      <div />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
       <div role="navigation">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Login</Link>
           </li>
           <li>
-            <Link to="/page-2">Page 2</Link>
+            <Link to="/register">Register</Link>
           </li>
         </ul>
       </div>
-      <Route
-        path="/"
-        exact
-        render={() => (
-          <div>
-            This is the generated root route.{' '}
-            <Link to="/page-2">Click here for page 2.</Link>
+      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+        <div className="container">
+          <Link className="navbar-brand" to={"/"}>JSTracker</Link>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to={"/"}>Login</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/register"}>Sign up</Link>
+              </li>
+            </ul>
           </div>
-        )}
-      />
-      <Route
-        path="/page-2"
-        exact
-        render={() => (
-          <div>
-            <Link to="/">Click here to go back to root page.</Link>
-          </div>
-        )}
-      />
-      {/* END: routes */}
+        </div>
+      </nav>      
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <Route
+            path="/"
+            exact
+            render={Login}
+          />
+          <Route
+            path="/register"
+            exact
+            render={Register}
+          />
+          {/* END: routes */}
+        </div>
+      </div>
     </>
   );
 }
