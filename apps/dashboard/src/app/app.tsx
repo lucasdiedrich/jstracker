@@ -9,22 +9,9 @@ import Map from './map/map';
 export function App() {
   return (
     <>
-      <Navbar />
-      <Route
-        path="/"
-        exact
-        render={Login}
-      />
-      <Route
-        path="/register"
-        exact
-        render={Register}
-      />
-      <Route
-        path="/map"
-        exact
-        render={Map}
-      />
+      <Route path="/" exact render={Login} />
+      <Route path="/register" exact render={Register} />
+      <Route path="/map" exact render={Map} />
       {/* END: routes */}
     </>
   );

@@ -5,8 +5,23 @@ export interface InfoProps {}
 
 export function Info(props: InfoProps) {
   return (
-    <div>
-      <h1>Detailed Info about selected device!</h1>
+    <div className="tab-content">
+      <div id="device-info">
+        <img
+          className="device-icon-large"
+          src="/assets/device.webp"
+          aria-hidden="true"
+        />
+        <div className="device-details">
+          <span> MI 9 LITE </span>
+          <br></br>
+          <div className="details-container">
+            <span> Status: Active </span> <br />
+            <span> Battery: 49%</span> <br />
+            <span> Connected 10 seconds ago. </span> <br />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import './map.module.scss';
 import Form from 'react-bootstrap/esm/Form';
 import Canvas from './canvas/canvas';
 import Deviceinfo from './deviceinfo/deviceinfo';
-
+import { Link } from 'react-router-dom';
 
 /* eslint-disable-next-line */
 export interface MapProps {}
@@ -10,8 +10,8 @@ export interface MapProps {}
 export function Map(props: MapProps) {
   return (
     <div className="wrapper">
-      <Deviceinfo/>
-      <Canvas/>
+      <Deviceinfo />
+      <Canvas />
     </div>
   );
 }
